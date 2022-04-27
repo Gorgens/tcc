@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			const size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"># Escrita científica
+
+Prof. Eric Bastos Gorgens
+</script></section><section  data-markdown><script type="text/template">
+## Monografia
+
+- Elementos pré-textuais
+	- Capa, Folha de rosto, Folha de aprovação, Resumo, Sumário.
+- Elementos textuais
+	- Introdução, Objetivos, Referencial teórico, Materiais e métodos, Resultados, Discussão, Considerações finais.
+- Elementos pós-textuais
+	- Referências.
+</script></section><section  data-markdown><script type="text/template">
+## Relatório técnico
+
+- Elementos pré-textuais
+	- Capa, Folha de rosto, Folha de aprovação, Resumo, Sumário.
+- Elementos textuais
+	- Introdução, Desenvolvimento, Considerações finais.
+- Elementos pós-textuais
+	- Referências.
+</script></section><section  data-markdown><script type="text/template">
+**O que?** O que você quer estudar?
+
+**Porque?** Porque você quer estudar?
+
+**Como?** Como você quer estudar?
+</script></section><section  data-markdown><script type="text/template">
+## Ordem do texto = ordem da escrita
+
+1. Introdução
+2. Referencial teórico
+3. Material e métodos
+4. Resultados
+5. Discussão
+6. Considerações finais
+</script></section><section  data-markdown><script type="text/template">
+## Ordem de escrita
+
+1. Referencial teórico
+2. Material e métodos
+3. Resultados
+4. Discussão
+5. Introdução
+6. Considerações finais
+</script></section><section  data-markdown><script type="text/template">
+### Referencial teórico
+
+- Utilize referências atuais.
+- Dê preferência a artigos.
+- Construa a base para justificar o seu trabalho.
+</script></section><section  data-markdown><script type="text/template">
+### Material e métodos
+
+- Prepare um fluxograma dos passos do seu trabalho em ordem cronológica.
+- Dedique um parágrafo para cada caixa do fluxograma.
+</script></section><section  data-markdown><script type="text/template">
+### Resultados
+
+- Coloque as imagens, figuras e tabelas em ordem cronológica.
+- Construa um parágrafo com os resultados de cada etapa do fluxograma.
+</script></section><section  data-markdown><script type="text/template">
+### Discussão
+
+- O que é importante dos seus resultados?
+- Como os resultados devem ser entendidos?
+- Como os resultados se comparam à literatura?
+- Quais as consequências dos resultados?
+- Existem teorias divergentes?
+</script></section><section  data-markdown><script type="text/template">
+### Considerações finais
+
+- O que se aprendeu com o seu trabalho?
+- Quais as limitações do seu trabalho?
+- Quais os próximos desdobramentos?
+</script></section><section  data-markdown><script type="text/template">### Resumo
+
+Uma ou duas sentenças fornecendo uma introdução básica sobre o campo de estudo compreensível para os cientistas de qualquer disciplina. Duas ou três sentenças apresentando a fundamentação detalhada, compreensível para os cientistas de disciplinas semelhantes. Uma sentença apresentando claramente o problema abordado pelo presente estudo. Uma sentença resumindo o principal resultado do trabalho. Duas ou três sentenças explicando como o resultado principal é relevante em comparação com o conhecimento corrente. Uma ou duas sentenças apresentando os resultados em um contexto mais geral. Duas ou três sentenças apresentando uma ampla perspectiva facilmente compreensível para qualquer cientista de qualquer disciplina.
+</script></section><section ><section data-markdown><script type="text/template">
+## Dicas importantes
+
+- Estabeleça uma agenda de trabalho.
+- Desde o início siga a normalização.
+- Frases de no máximo 25 palavras.
+- Parágrafos de no mínimo três frases.
+- Cuide com cuidado do seu TCC: gramática e ortografia.
+</script></section><section data-markdown><script type="text/template">
+## Dicas importantes
+
+- Estabeleça uma agenda de trabalho.
+- Desde o início siga a normalização.
+- <mark>Frases de no máximo 25 palavras.</mark>
+- Parágrafos de no mínimo três frases.
+- Cuide com cuidado do seu TCC: gramática e ortografia.
+
+<div style="page-break-after: always;"></div>
+</script></section></section><section  data-markdown><script type="text/template">
+### Desafio 1
+
+CEMIG cita no Plano de Manejo da RPPN que durante o processo de licenciamento para obtenção das Autorizações de Exploração Florestal houve o entendimento entre os órgãos ambientais estaduais de que parte da Fazenda deveria ser transformada em RPPN, devido à riqueza da flora e fauna ali presentes, uma vez que a área é um importante remanescente de mata atlântica na região.
+
+<div style="page-break-after: always;"></div>
+</script></section><section  data-markdown><script type="text/template">
+### Desafio 2
+
+Dentre esses materiais, os polímeros hidroretentores, que são produtos naturais ou sintéticos, têm se mostrado como o futuro da indústria de inoculante, pois tem como vantagens, serem relativamente baratos e já são usados em outras áreas industriais, principalmente na indústria agropecuária devido suas características de higroscopicidade.
+
+<div style="page-break-after: always;"></div>
+</script></section><section  data-markdown><script type="text/template">
+### Desafio 3
+
+É importante salientar que o método aqui proposto considera o desbaste seletivo por baixo, partindo do pressuposto de que a posição que a árvore ocupa na floresta influencia de forma direta a utilização dos fatores de produção, em especial a radiação disponível para os processos fotossintéticos.
+
+<div style="page-break-after: always;"></div>
+</script></section><section  data-markdown><script type="text/template">
+### Desafio 4
+
+Assumindo que a prescrição de atividades silviculturais como o desbaste e a desrama, devem ser prescritas a indivíduos que ainda possuam condições de aproveitar os fatores de produção para o crescimento secundário, a modelagem em nível de árvore individual garante que sua prescrição será direcionada a indivíduos que ainda não atingiram o seu momento ótimo de corte.</script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealCustomControls,
+        ],
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+
+		customcontrols: {
+			controls: [
+			]
+		},
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":0.04,"controls":true,"progress":true,"slideNumber":true,"transition":"slide","transitionSpeed":"default"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>
